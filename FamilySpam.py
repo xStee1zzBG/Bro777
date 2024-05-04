@@ -34,7 +34,7 @@ def start():
         print(response.text)
 
 threads = []
-for i in range(20):
+for i in range(10):
     t = threading.Thread(target=start)
     t.start()
     threads.append(t)
