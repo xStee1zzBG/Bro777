@@ -9,6 +9,10 @@ def start():
         random_line = random.choice([line.strip() for line in lines if ':' in line])
         uid, accessToken = random_line.split(':')
 
+        generate_region = ["zh_CN", "en_US", "de_DE", "es_ES", "fr_FR", "hi_IN", "in_ID", "it_IT", "ja_JP", "ko_KR", "pl_PL", "pt_PT", "ru_RU", "th_TH", "tr_TR", "uk_UA", "vi_VN"]
+
+        region = random.choice(generate_region)
+
         memberType = random.choice([1, 2, 3, 4])
         ownerType = random.choice([1, 2, 3, 4])
         age = random.randint(9, 200)
@@ -23,7 +27,7 @@ def start():
 
         data_1 = {'age': age, 'memberType': memberType, 'ownerType': ownerType}
 
-        headers_2 = {'userId': uid, 'Access-Token': accessToken, 'userLanguage': 'ru_RU', 'appVersion': '4962', 'User-Agent': 'okhttp/3.12.1'}
+        headers_2 = {'userId': uid, 'Access-Token': accessToken, 'userLanguage': region, 'appVersion': '4962', 'User-Agent': 'okhttp/3.12.1'}
 
         response = requests.post(API_2, headers=headers_2, json=data_1)
 
