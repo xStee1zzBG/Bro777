@@ -1,3 +1,4 @@
+import time
 import requests
 import random
 import threading
@@ -32,9 +33,10 @@ def start():
         response = requests.post(API_2, headers=headers_2, json=data_1)
 
         print(response.text)
+        time.sleep(1.5)
 
 threads = []
-for i in range(3):
+for i in range(10):
     t = threading.Thread(target=start)
     t.start()
     threads.append(t)
